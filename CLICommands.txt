@@ -1,0 +1,22 @@
+----------CLI Commands-----------
+
+1. login
+az login --tenant 5e1cc9a6-02c0-4acf-b119-ef3eb069f7f5
+
+2. create resource group
+az group create -l CentralIndia -n AKSDemo
+
+3. create registery
+az acr create --resource-group AKSDemo --name demoregisterywebapi --sku Basic
+
+4. login to registery
+az acr login --name demoregisterywebapi
+
+5. tag image
+docker tag webapiefcoredemo:dev demoregisterywebapi.azurecr.io/webapiefcoredemo:v1
+
+6.push image to container registery
+docker push demoregisterywebapi.azurecr.io/webapiefcoredemo:v1
+
+7.list down the images pushed to registery
+az acr repository list --name demoregisterywebapi --output table
